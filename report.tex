@@ -43,44 +43,17 @@
 
 \begin{document} % This begins the document proper and ends the pre-amble
 
-{\color{blue}
-{\LARGE [Writing a Report in \LaTeX]}\\
-
-[This .pdf file is designed to be used in conjunction with the .tex file of the same name, which is available in the same location as this file was found. The .pdf file demonstrates the finished product and includes all the generic advice on how to write a lab report. It is produced by the raw .tex file, which is harder to read, but contains comments, which don't appear in the pdf, that describe how to use LaTeX, including links to useful websites.] \\
-
-[There are several programs that you can write LaTeX in, including MikTeX, which should be available on the University computers (and is also free to download from http://miktex.org/download).] \\
-
-[Once a .tex file has been written, it must be compiled into a pdf file. Most LaTeX programs will be able to do this, usually by a `play' button, or a compile option in the toolbar. Please check your LaTeX program to check how it compiles into a pdf as it is your responsibility to ensure your report is readable.] \\
-
- [Text that is blue and in square brackets should be deleted when you are using this document as a template for your report. It is there to help expand upon the points mentioned in the template, and to indicate if anything should be done differently in certain situations.]\\
-
-\pagenumbering{gobble}
-
-\newpage
-}
-
-% The last } finishes the chunk of text opening with {\color{blue}..., so all of the above appears as blue text. A common LaTeX error is to forget to close such a chunk of text, so if the formatting goes wrong look for a missing }.
-
-% To get rid of the blue text, select and delete everything from '{\color' to '}', inclusive, leaving \ begin{titlepage} as the first command  after \begin{document}
-
 \begin{titlepage} % Begins the titlepage of the document
 \begin{center} % Starts the beginning of an environment where all text is centered.
 
-{\Huge Short and informative title}\\[0.5cm] % [0.5cm] sets the distance between this line and the next.
-\textit{Author One} and {\color{blue}[if joint]} \textit{Author Two}~\\[0.3cm] % The '\\' starts a new paragraph, and will only work after a paragraph has started, unless we use '~'.
-\textit{Student number one} and {\color{blue}[if joint]} \textit{student number two}~\\[0.3cm]
+{\Huge The Chaotic Pendulum}\\[0.5cm] % [0.5cm] sets the distance between this line and the next.
+\textit{Luna Greenberg} and \textit{Hamza Yasin}~\\[0.3cm] % The '\\' starts a new paragraph, and will only work after a paragraph has started, unless we use '~'.
+\textit{11017146} and \textit{<Hamza put your student ID here>}~\\[0.3cm]
 School of Physics and Astronomy~\\[0.3cm]
 University of Manchester~\\[0.3cm]
-First/Second/Third year laboratory report~\\[0.3cm]
-Month yyyy~\\[2cm]
+Second year computational project report~\\[0.3cm]
+April 2024~\\[2cm]
 
-
-% If this was an individual report then remove the "For an individual report" section and replace "Partner name".
-\begin{flushleft}
-{\color{blue}[For an individual report:]\\}
-\end{flushleft}
-
-This experiment was performed in collaboration with \textit{Partner Name}~\\[2cm] % The value in this square brackets can be altered to ensure the abstract fits entirely on the first page of the report.
 
 \end{center}
 {\Large \textbf{Abstract}}~\\[0.3cm]
@@ -107,8 +80,6 @@ This experiment was performed in collaboration with \textit{Partner Name}~\\[2cm
 % In this case, if you write "Section \ref{intro}" this will be rendered as "Section 1".
 
 The introduction should introduce the reader to the report and the experiment. To do this it should provide any necessary background or context to the experiment, this may include brief historical information or notable previous work. As in all sections you should cite references to support factual claims other than your own results. We will be more impressed by citations of the original historic papers than by citations of textbooks, and more impressed by textbooks than by web pages. This section should also describe the main desired outcomes of the experiment, any practical applications, and any other notable elements of the experiment not sufficiently technical for the main body of the report. It should not just be a summary of the experiment.\\
-
-{\color{blue} {\Large [Main body} - This is where the bulk of the report should be. The different categories in this section should be tailored to individual experiments, but a typical report may contain a theory section, a section detailing the experimental approach, and a results section. These sections are expanded upon below.]}
 
 \section{Theory}
 This section should explain the physics behind the experiment that you are doing, including diagrams where appropriate. This should be at the level of a non-specialist peer, for example a fellow university undergraduate who has not yet done this experiment. Most theory sections will include equations, these should be centred on the page, numbered with the number aligned to the right of the page, as part of a grammatically correct sentence, and with all terms defined. For example:\\
@@ -159,17 +130,12 @@ This section should describe any finer details of your experiment and should be 
 %
 until you have told the reader that there is a laser and a target; this can be done via a figure, but the “telling” is then the point where the figure is referred to in the text.  This section should also include details of the uncertainties associated with your measurements. Other things you may like to include at this stage are details of any experimental calibration, or actions undertaken to reduce uncertainty in your results. Often, the overall accuracy hangs on such measurements, so they should be clearly described. \\
 
-{\color{blue} 
- [Please see the .tex file for information about how to insert an image into your document. Fig. \ref{Michelson} is a schematic diagram of a Michelson interferometer. Each image should have a caption and a label. The label allows you to refer back to a specific image without having to remember its figure number; this is done by the \textbackslash ref\{label\} command. LaTeX also numbers your figures automatically, meaning you can insert a new image in front of a previous image and not have to worry about changing figure numbers.]\\
-}
-
 
 \section{Results}
 
 This section should typically be the largest in the report. It should include all the data that you have used to draw results and conclusions from, and a critical analysis of those results and conclusions. The data should typically be presented in either tabular or graphical form, with the graphical form always being preferable where appropriate. You should never include both a table and graph of the same data. Tables and graphs should be placed across the full width of the page. LaTeX automatically sizes a table to fit the text.  Table~\ref{tab:example} shows an example. 
 % ~ inserts a no-break space to make sure the table number does not come on the next line.
 For graphs, a scaling factor must be used to ensure that the image fits the page. All figures and tables should be referred to explicitly by number, and explained in the text. Figures should not rely on use of colour, as for marking your report will be printed in black and white. Graphs should contain axis titles, units, error bars and a key as appropriate. This section should not just be sequential graphs, each should have associated text discussing the results from that particular section of experiment. This section should also contain a discussion of your error analysis, and should identify the main contributor(s) to the uncertainty of each value.
-
 
 
 \begin{table} % Begins the table environment
@@ -190,18 +156,11 @@ Current (A) & Magnetic field (T) & Height of meniscus (mm)$^a$\\ \hline % This i
 
 $^a$ The heights, measured with a microscope, are accurate to 0.02~mm. \\
 \smallskip % inserts a small vertical space
-{\color{blue}
-[ Lines can be inserted between rows and columns, but are best used just to separate the column labels and define the top and bottom, as here.]}
 
 \end{center}
 \end{table}
 
 % For more information on using tables, figures and cross-references in LaTeX, consult Andy Roberts' website (links at top of this document).
-
-{\color{blue}
- [It can sometimes be helpful to split this section into Results and Discussion where a dedicated Discussion section is used to explicitly talk about the results and their implications. In this arrangement, the Results section should still contain text describing the results. Do not use the Discussion section just to do an error analysis.]}\\
-
-{\color{blue}[This finishes the conventionally customised sections of the Main Body.]}\\
 
 \section{Conclusions}
 All reports should contain a `Conclusions' section. This should describe any conclusions that can be drawn from the experiment.
@@ -210,37 +169,5 @@ Unlike the abstract, it is not a summary of the entire report, so it does not ne
 
 \bibliography{report_template_library} % Specifies the bibliography file where our references are stored. If the library file and document are not in the same folder then the file path must also be included.
 
-{\color{blue} [This section does not contain any written text, just the references themselves.  LaTeX creates it
-automatically using a reference library file ({\tt report\_template\_library.bib} in this case), from which it picks entries which have
-been cited in the text using the \textbackslash cite\{label reference\} command. See the .bib file for information on how to enter references. You can use one of two reference styles: either author-date, where the citation in the text reads, e.g. (Morin 2008), 
-and the references are listed alphabetically by author, or numerical (“IEEE”) referencing, where the citation reads [1] and the references are in numerical order by first use in the text. Do not include the lab script as a reference.]\\
-
- [Once you progress to the later years of your degree, specifically your MPhys project, you may find that a dedicated reference manager such as Mendelay or EndNote is more helpful to manage the large number of references you will have. These programs can also generate .bib files automatically for your reports.]}\\
-
-{\color{blue}{\Large [Optional sections]}\\
-
- [There are a number of addition sections that can sometimes be required in a report. Typically these are not required, but can on occasion be helpful. Typically this will be acknowledgements or appendices. Material in appendices is by definition not essential to your report and there is hardly ever a good reason to include it. Remember that your marker has to read a lot of reports and will appreciate brevity!]\\
-
-{\Large [Additional information]}\\
-
- [Please note that this template is not meant to be a complete guide to writing a lab report.
-Basic rules are given on the Blackboard site for 1st-year lab (PHYS10180). The first-year mark sheet serves as a comprehensive summary of basic formatting rules. Marking criteria in second year give much higher weight to complete and accurate description of the experiment.]\\
-
-{\Large [A note on writing style]}\\
-
- [The style of a lab report should approach that of a scientific paper. This is characterised by clarity and conciseness without verbosity or repetition. The past tense should be used to describe what has been done, and the present tense should be used to describe ongoing situations such as theory. Tenses should not be mixed within a single section. Both the passive voice (e.g. measurements were made) and the active voice (e.g. we concluded) are suitable, but the report should focus on the science and not the individual, so use of personal pronouns such as `I' and  `we' should not become obtrusive. Conditional language should be avoided wherever possible.]\\
-
-{\Large [Writing values]}\\
-
-[Whenever a value is given it should always have units and associated uncertainty, rounded sensibly and with both the values an 
-uncertainties quoted to the same sensible level of precision. Units should be written in roman font, and italic font should be used for 
-symbols, e.g. \mbox{$m = 15.2 \pm 0.1$~kg}. Use a non-breaking space to make sure values and units do not spread across line 
-breaks.]\\
-% ~ is the non-breaking space. 
-% In this case the line-break wanted to go after the equals sign, which is suppressed by putting the equation in \mbox{}
-
- [Document produced by Aniela Rodak - November 2014\\
- Last edited by Paddy Leahy - October 2016; e-mail: j.p.leahy@manchester.ac.uk]
-}
 
 \end{document}
