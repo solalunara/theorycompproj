@@ -57,12 +57,8 @@ April 2024~\\[2cm]
 
 \end{center}
 {\Large \textbf{Abstract}}~\\[0.3cm]
+    <abstract>
 
- The abstract should be approximately 50 to 200 words long. It should consist of a clear and precise description of the experiment and the key findings. If there are a few key numerical results then these should be stated with their uncertainty. Try to avoid symbols or equations as these take time to define and are rarely beneficial. Do not use tables or graphics. Try to avoid material requiring referencing, if it is essential, then the reference should appear at the end of the abstract rather than the end of the report. If the same reference is used in the report proper, then it should also be referenced at the end of the report.\\
-
- The purpose of the abstract is to allow someone to decide whether to read the complete report, and as such an abstract should always be independent of the report; nothing should be in the abstract that is not in the report, and all major elements of the report should be represented in the abstract.
-
-% New paragraphs can either be initiated by a double vertical space i.e. tapping the enter button twice, which causes the paragraph below to be indented, or by a '\\', which does not cause the next paragraph to indent. In a long section of mainly writing, indentations on paragraphs can help break up the text into different sections. To avoid indentations in your report when they are not needed, use the  command before the line.
 
 \end{titlepage}
 \pagenumbering{gobble} % This stops the title page being numbered
@@ -79,93 +75,87 @@ April 2024~\\[2cm]
 % \label{} can appear in the text (when they refer to the preceding (sub)section title), equations, tables, or figures. 
 % In this case, if you write "Section \ref{intro}" this will be rendered as "Section 1".
 
-The introduction should introduce the reader to the report and the experiment. To do this it should provide any necessary background or context to the experiment, this may include brief historical information or notable previous work. As in all sections you should cite references to support factual claims other than your own results. We will be more impressed by citations of the original historic papers than by citations of textbooks, and more impressed by textbooks than by web pages. This section should also describe the main desired outcomes of the experiment, any practical applications, and any other notable elements of the experiment not sufficiently technical for the main body of the report. It should not just be a summary of the experiment.\\
 
 \section{Theory}
-This section should explain the physics behind the experiment that you are doing, including diagrams where appropriate. This should be at the level of a non-specialist peer, for example a fellow university undergraduate who has not yet done this experiment. Most theory sections will include equations, these should be centred on the page, numbered with the number aligned to the right of the page, as part of a grammatically correct sentence, and with all terms defined. For example:\\
+    Chaos can generally be seen through
+    \begin{itemize}
+        \item Sensitivity to initial conditions,
+        \item Topological mixing, and
+        \item Dense periodic orbits.
+    \end{itemize}
+    There are multiple maps and plots that can be made to examine these prperties. 
+    The most common of these is the Poincar\'e section. This is a plot of the phase 
+    space of the system, with the position of the pendulum on the x-axis and the velocity 
+    on the y-axis. The Poincar\'e section is a useful tool for examining the periodic 
+    orbits of the system, and the general method of using the state space of the system 
+    is useful in analyzing the other two properties, topological mixing and initial condition
+    sensitivity. Other tools include the bifurcation diagram, which shows the states of the
+    system as a function of the driving force, as well as the Poincar\'e plot, which is a useful
+    tool in examining the underlying structure of the system. \cite{Strogatz2000}\\
 
- The electric field, ${\bf E}$, of a monochromatic wave travelling in the $z$ direction and polarized in the $x$ direction is given by
-%
-% Using $ initiates and ends math mode, which is useful when defining symbols in the text.
-%
-\begin{equation}
-\label{secondlaw}
-{\bf E} = {\bf  \hat{i}}\, E_0 \sin(kz - \omega t),
-\label{eq:wave}
-\end{equation}
-%
-% Entering equations in LaTeX is different to Microsoft Word. In this case, we begin an equation environment, give the equation a label and write the equation. 
-% Subscripts and superscripts are created by $_{#}$ and $^{#}$ respectively, where # is a number.
-% \, generates a thin space to improve the equation layout.
-% Use commands like \sin to generate function names in the appropriate font.
-% For Greek letters and more mathematical functions, check 
-%     http://www.andy-roberts.net/res/writing/latex/symbols.pdf. 
-% This resource also includes some examples of more complex formulae. 
-% LaTeX automatically numbers your equations in the standard format of a centred equation and right margin number.
-%
-where $k$ is the wavenumber, $\omega$ is the angular frequency, and $t$ is time \cite{Morin2008}.
-% \citep gives (Morin 2008), whereas \citet gives Morin (2008) which you should use if the citation is grammatically part of the sentence
-
-
-% References are called to a particular place in the text by the '\cite' command. Each individual reference has an idividual label that refers to it, and it is this that is used to call it. More information on this will be given in the references section.
-
-\subsection{Theory subsection}
-Sometimes it can be useful to subdivide sections. Don’t overdo this: if you have more than two titles on a page you are probably subdividing too finely. If you have subsections it may be useful to have an introductory paragraph between the title and the first subsection, but in other cases it makes more sense to have, say, the ‘Theory’ header, followed immediately by the ‘Theory subsection’ header. There is no point in having just one subsection in a section! \citet{Einstein1905} is an example of another citation.
-
-% LaTeX also has a \subsubsection command, but will not go any further. Subsections are also numbered automatically.
-
-\section{Experimental approach}
-This section should describe any finer details of your experiment and should be given a title appropriate to the experiment. It is generally useful to have a schematic diagram of the key parts of your experimental setup; an example is given in Fig. \ref{Michelson}.\\
-
-\begin{figure} % This begins the figure environment. LaTeX will automatically try and fit your images around your text in the most efficient way, usually at the top of a page; let it do that.
-\centering % This centers the figure (and the caption) on the page 
-\caption{Schematic diagram of the Michelson interferometer, consisting of two mirrors, labelled A and B, and a coherent laser source targeted at a 50:50 beamsplitter. Mirror A is mounted to a translation stage parallel to the incident radiation, and both A and B have fine adjustments for alignment in two dimensions.} % This is the caption for the diagram
-\label{Michelson} % This is the label for the diagram and is needed to be able to refer back to the diagram in the text. It should be placed after the caption command.
-\end{figure}
-
- In some cases it might be useful for one of the figures to be a photo of the apparatus, but these are often confusing, and a clear schematic diagram is usually better. However, you will not get much credit for simply copying diagrams from the lab script. Diagrams should contain readable labels for all pieces of equipment shown and should have a caption that describes what is in the image. Remember, when talking about parts of your experiment, you cannot say `the laser was aligned with the target', 
-%
-% LaTeX requires you to use an open-quote symbol, whereas Word automatically converts apostrophes to
-% open-quote if it thinks that is what you wanted.
-%
-until you have told the reader that there is a laser and a target; this can be done via a figure, but the “telling” is then the point where the figure is referred to in the text.  This section should also include details of the uncertainties associated with your measurements. Other things you may like to include at this stage are details of any experimental calibration, or actions undertaken to reduce uncertainty in your results. Often, the overall accuracy hangs on such measurements, so they should be clearly described. \\
-
-
+\section{Methodology}
+    When simulating a chaotic system, it is important to use a numerical method that is very precise and to
+    use a small enough time step to ensure that the system is accurately represented. The Euler method is
+    a simple method that can be used to simulate the system, but it is not very accurate. The Runge-Kutta
+    method is a more accurate method that can be used to simulate the system, and although it may be more
+    computationally expensive, the Runge-Kutta method is a good choice for simulating a chaotic system, 
+    specifically RK4\cite{Strogatz2000}. In this project, RK4 was used to calculate the steps of angular velocity
+    using the equation of motion for the forced, damped pendulum, and Euler's method was used to calculate the
+    angle from the angular velocity, as the angular velocities are calculated discretely, there is no way to take
+    a half step which is required for RK4. The equation of motion for this system is given by \cite{PhysRevE.53.1579}
+    \begin{equation}
+        \frac{d^2\theta}{dt^2} = -\frac{g}{R}\sin(\theta) - \frac{b}{M}\frac{d\theta}{dt} + F_d\sin(\Omega_d t)
+    \end{equation}
+    where $\theta$ is the angle of the pendulum, $t$ is the time since the initial condition, $g$ is the acceleration due to gravity,
+    $R$ is the length of the pendulum, $b$ is the damping coefficient, $M$ is the mass of the pendulum, $F_d$ is the driving force,
+    and $\Omega_d$ is the frequency of the driving force. This is a second order differential equation, requiring a mesh of 2d initial
+    conditions. For this analysis, we assume g, R, b, and M to all be constant, and vary the driving force, $F_d$, and the frequency
+    of the driving force, $\Omega_d$. The system will be analyzed using Poincar\'e sections\cite{PoincareSection}, bifurcation
+    diagrams \cite{Bifurcation}, Poincar\'e plots\cite{kamen1996poincare}, and the Lyapunov exponent\cite{Lyapunov}, as well as a 
+    qualitative analysis of the phase space evolution of the system.\\
+    \subsection{Poincar\'e Sections}
+        Poincar\'e sections for this project were constructed by analyzing individual initial conditions and plotting the position
+        of the pendulum against the velocity of the pendulum until the system reached a periodic orbit. The Poincar\'e section was
+        then plotted, and the periodic orbit was analyzed. This was repeated for multiple initial conditions. Determining what makes
+        a periodic orbit in a chaotic system with numerical methods is not completely obvious - the error in the numerical method
+        was tracked for each initial condition, and the periodic orbit was determined to be when the point returned to within the
+        error of the initial condition. The error was determined by the step size of the Runge-Kutta method and Euler method and then
+        propagated forward through the equation of motion.\\
+    \subsection{Bifurcation Diagrams}
+        Bifurcation diagrams were constructed by analyzing the system of the pendulum as a function of the driving force. The system
+        was simulated for a range of driving forces, and the system of the pendulum was plotted for many initial conditions over a 
+        long time frame. The bifurcation diagram was then analyzed for periodic orbits and chaotic behavior. Bifurcation diagrams were
+        created for both the angle of the system and the angular velocity, and were made using a 2d histogram on a log scale of counts\\
+    \subsection{Poincar\'e Plots}
+        Poincar\'e plots were constructed by plotting the position of the pendulum at a given point on the x axis and the next position of
+        the pendulum on the y axis to get a sense of the underlying structure of the system. Structure in the Poincare plot can be indicative
+        of certain patterns of behavior and are often used to determine the governing structure of the system. In our case, we can use the
+        distribution of points to determine whether or not the system is exhibiting chaotic behavior - if the system is chaotic, the Poincar\'e
+        plot will be dense, though there may be a general structure that can give insight into the system.\\
+    \subsection{Lyapunov Exponent}
+        The Lyapunov exponent is a measure of the sensitivity to initial conditions of a system. The Lyapunov exponent is calculated by
+        taking the derivative of the system with respect to the initial condition and then taking the logarithm of the absolute value of
+        the derivative. The Lyapunov exponent is then the average of this value over time. The Lyapunov exponent is a useful tool for 
+        determining the sensitivity to initial conditions of a system, and can be used to determine whether or not a system is chaotic.\\
+    \subsection{Phase Space Analysis}
+        The phase space is a 2d plot of the angle of the pendulum on the x-axis and the angular velocity of the pendulum on the y-axis. 
+        The phase space is a useful tool for analyzing the behavior of the system, and can be used qualitatively to assess sensitivity 
+        to initial conditions and topological mixing. A full GUI was created for analyzing the system qualitatively, however the format
+        of the lab report means that only certain snapshots can be shown, and a link to mp4 animations will be provided, as well as a link
+        to the project on GitHub, which can be run with python to show the GUI.\\
 \section{Results}
-
-This section should typically be the largest in the report. It should include all the data that you have used to draw results and conclusions from, and a critical analysis of those results and conclusions. The data should typically be presented in either tabular or graphical form, with the graphical form always being preferable where appropriate. You should never include both a table and graph of the same data. Tables and graphs should be placed across the full width of the page. LaTeX automatically sizes a table to fit the text.  Table~\ref{tab:example} shows an example. 
-% ~ inserts a no-break space to make sure the table number does not come on the next line.
-For graphs, a scaling factor must be used to ensure that the image fits the page. All figures and tables should be referred to explicitly by number, and explained in the text. Figures should not rely on use of colour, as for marking your report will be printed in black and white. Graphs should contain axis titles, units, error bars and a key as appropriate. This section should not just be sequential graphs, each should have associated text discussing the results from that particular section of experiment. This section should also contain a discussion of your error analysis, and should identify the main contributor(s) to the uncertainty of each value.
-
-
-\begin{table} % Begins the table environment
-
-\begin{center}
-\caption{Height of the meniscus for different magnetic fields.}
-\label{tab:example}
-\begin{tabular}{ccc}\hline % Begins the table proper and sets the number of columns, how the text is aligned in each cell (l, r or c). Vertical line between columns can be inserted with a `|', but use these sparingly if at all.
-Current (A) & Magnetic field (T) & Height of meniscus (mm)$^a$\\ \hline % This is where you label your columns, using a '&' to indicate moving onto the next cell. The '\\' starts a new line and the '\hline' command draws a horizontal line underneath the row.
-0.1 & 0.23  & 3.24\\
-0.2 & 0.46  & 3.41\\ 
-0.3 & 0.46  & 3.60\\ 
-0.4 & 0.87  & 3.97\\ 
-0.5 & 1.06  & 4.32\\ 
-0.6 & 1.27  & 4.81\\ \hline
-\end{tabular} % Ends the table environment
-\smallskip % If you want to put any text under the table, e.g. more detailed column descriptions, leave a space, or else the text will start to the right of the table.
-
-$^a$ The heights, measured with a microscope, are accurate to 0.02~mm. \\
-\smallskip % inserts a small vertical space
-
-\end{center}
-\end{table}
-
-% For more information on using tables, figures and cross-references in LaTeX, consult Andy Roberts' website (links at top of this document).
-
+    \subsection{Poincar\'e Sections}
+    \subsection{Bifurcation Diagrams}
+    \subsection{Poincar\'e Plots}
+    \subsection{Lyapunov Exponent}
+    \subsection{Phase Space Analysis}
 \section{Conclusions}
-All reports should contain a `Conclusions' section. This should describe any conclusions that can be drawn from the experiment.
-Unlike the abstract, it is not a summary of the entire report, so it does not need to re-describe the experiment. This section should contain no new information. To reiterate that last point, everything discussed in this section should be mentioned somewhere else in the report. However, extensions or improvements to the experiment can be suggested, so long as the limitation that is being overcome has been discussed elsewhere.\\
-
+    \subsection{Poincar\'e Sections}
+    \subsection{Bifurcation Diagrams}
+    \subsection{Poincar\'e Plots}
+    \subsection{Lyapunov Exponent}
+    \subsection{Phase Space Analysis}
+    \subsection{Wholistic Analysis}
 
 \bibliography{report_template_library} % Specifies the bibliography file where our references are stored. If the library file and document are not in the same folder then the file path must also be included.
 
