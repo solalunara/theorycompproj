@@ -120,12 +120,22 @@ April 2024~\\[2cm]
         a periodic orbit in a chaotic system with numerical methods is not completely obvious - the error in the numerical method
         was tracked for each initial condition, and the periodic orbit was determined to be when the point returned to within the
         error of the initial condition. The error was determined by the step size of the Runge-Kutta method and Euler method and then
-        propagated forward through the equation of motion.\\
+        propagated forward through the equation of motion.\\\vspace{3mm}
+
+        The Poincar\'e section will look different depending on whether or not the system is chaotic. If the system is not chaotic,
+        which is theoretically what should be recovered in the case of a small driving force, the Poincar\'e section will look like
+        an ellipse or a circle. If the system is chaotic, the Poincar\'e section will look like a dense cloud of points, visually
+        not appearing to have any structure. We can perform an ellipse regression test on the poincare map and use the residuals to
+        determine whether or not the system is chaotic.\\
     \subsection{Bifurcation Diagrams}
         Bifurcation diagrams were constructed by analyzing the system of the pendulum as a function of the driving force. The system
         was simulated for a range of driving forces, and the system of the pendulum was plotted for many initial conditions over a 
         long time frame. The bifurcation diagram was then analyzed for periodic orbits and chaotic behavior. Bifurcation diagrams were
-        created for both the angle of the system and the angular velocity, and were made using a 2d histogram on a log scale of counts\\
+        created for both the angle of the system and the angular velocity, and were made using a 2d histogram on a log scale of counts\\\vspace{3mm}
+
+        A dense bifurcation diagram is indicative of a chaotic system, while a sparse bifurcation diagram is indicative of a non-chaotic
+        system. The system may become chaotic at a certain driving force, and the bifurcation diagram can be used to determine the
+        driving force at which it does.\\
     \subsection{Poincar\'e Plots}
         Poincar\'e plots were constructed by plotting the position of the pendulum at a given point on the x axis and the next position of
         the pendulum on the y axis to get a sense of the underlying structure of the system. Structure in the Poincare plot can be indicative
@@ -133,10 +143,9 @@ April 2024~\\[2cm]
         distribution of points to determine whether or not the system is exhibiting chaotic behavior - if the system is chaotic, the Poincar\'e
         plot will be dense, though there may be a general structure that can give insight into the system.\\
     \subsection{Lyapunov Exponent}
-        The Lyapunov exponent is a measure of the sensitivity to initial conditions of a system. The Lyapunov exponent is calculated by
-        taking the derivative of the system with respect to the initial condition and then taking the logarithm of the absolute value of
-        the derivative. The Lyapunov exponent is then the average of this value over time. The Lyapunov exponent is a useful tool for 
-        determining the sensitivity to initial conditions of a system, and can be used to determine whether or not a system is chaotic.\\
+        The Lyapunov exponent is a measure of the sensitivity to initial conditions of a system. It measures the rate at which
+        adjacent points in the phase space diverge from each other. A chaotic system will have a positive Lyapunov exponent, while
+        a non-chaotic system will not fit the exponential growth of the Lyapunov exponent very well, which can be tested with regression.
     \subsection{Phase Space Analysis}
         The phase space is a 2d plot of the angle of the pendulum on the x-axis and the angular velocity of the pendulum on the y-axis. 
         The phase space is a useful tool for analyzing the behavior of the system, and can be used qualitatively to assess sensitivity 
