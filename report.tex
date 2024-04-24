@@ -21,7 +21,7 @@
 
 \usepackage[top=2.54cm, bottom=2.54cm, left=2.75cm, right=2.75cm]{geometry} %This sets the margins of the report.
 
-\usepackage{graphicx} % A package allowing insertion of images into the text.
+\usepackage{tikz, float, pgfplots, xcolor, titlesec, amsmath, url, hanging, siunitx, graphicx, sectsty}
 
 % Choose your citations style by commenting out one of the following groups. If you decide to change style, you should also delete the .bbl file that you will find in the same folder as your .tex and .pdf files.
 
@@ -94,25 +94,26 @@ April 2024~\\[2cm]
     tool in examining the underlying structure of the system. \cite{Strogatz2000}\\
 
 \section{Methodology}
-    When simulating a chaotic system, it is important to use a numerical method that is very precise and to
-    use a small enough time step to ensure that the system is accurately represented. The Euler method is
-    a simple method that can be used to simulate the system, but it is not very accurate. The Runge-Kutta
-    method is a more accurate method that can be used to simulate the system, and although it may be more
-    computationally expensive, the Runge-Kutta method is a good choice for simulating a chaotic system, 
-    specifically RK4\cite{Strogatz2000}. In this project, RK4 was used to calculate the steps of angular velocity
-    using the equation of motion for the forced, damped pendulum, and Euler's method was used to calculate the
-    angle from the angular velocity, as the angular velocities are calculated discretely, there is no way to take
-    a half step which is required for RK4. The equation of motion for this system is given by \cite{PhysRevE.53.1579}
+    For simulating a system such as the chaotic pendulum, care must be taken to ensure the numerical methods 
+    used are very precise, and to use a small enough time step to ensure that the system is accurately represented.
+    Euler's method is simple and can be used to simulate the system, but it is not very accurate in contrast to
+    the Runge-Kutta method, which uses half steps in the integration to give a better stepwise estimate. Although 
+    it may be more computationally expensive, the Runge-Kutta method is a good choice for this project, specifically
+    RK4\cite{Strogatz2000}. As such, RK4 was used to calculate the steps of angular velocity using the equation of
+    motion for the forced, damped pendulum, and Euler's method was used to calculate the angle from the angular velocity, 
+    as since the angular velocities are calculated discretely with RK4 there is no way to take a half step which is required 
+    for another iteration RK4 in a way that would provide a benefit to the numerical computation. The equation of motion
+    for this system\cite{PhysRevE.53.1579} is given by
     \begin{equation}
         \frac{d^2\theta}{dt^2} = -\frac{g}{R}\sin(\theta) - \frac{b}{M}\frac{d\theta}{dt} + F_d\sin(\Omega_d t)
     \end{equation}
     where $\theta$ is the angle of the pendulum, $t$ is the time since the initial condition, $g$ is the acceleration due to gravity,
     $R$ is the length of the pendulum, $b$ is the damping coefficient, $M$ is the mass of the pendulum, $F_d$ is the driving force,
     and $\Omega_d$ is the frequency of the driving force. This is a second order differential equation, requiring a mesh of 2d initial
-    conditions. For this analysis, we assume g, R, b, and M to all be constant, and vary the driving force, $F_d$, and the frequency
-    of the driving force, $\Omega_d$. The system will be analyzed using Poincar\'e sections\cite{PoincareSection}, bifurcation
-    diagrams \cite{Bifurcation}, Poincar\'e plots\cite{kamen1996poincare}, and the Lyapunov exponent\cite{Lyapunov}, as well as a 
-    qualitative analysis of the phase space evolution of the system.\\
+    conditions. For this analysis, we assume $g=9.81\text{ms}^{-2}$, $R=10\text{m}$, $b=0.1\text{kgs}^{-1}$, and $M=10\text{kg}$ to all 
+    be constant, and vary the driving force, $F_d$, and the frequency of the driving force, $\Omega_d$. The system will be analyzed using 
+    Poincar\'e sections\cite{PoincareSection}, bifurcation diagrams \cite{Bifurcation}, Poincar\'e plots\cite{kamen1996poincare}, and the 
+    Lyapunov exponent\cite{Lyapunov}, as well as a qualitative analysis of the phase space evolution of the system.\\
     \subsection{Poincar\'e Sections}
         Poincar\'e sections for this project were constructed by analyzing individual initial conditions and plotting the position
         of the pendulum against the velocity of the pendulum until the system reached a periodic orbit. The Poincar\'e section was
@@ -154,17 +155,62 @@ April 2024~\\[2cm]
         to the project on GitHub, which can be run with python to show the GUI.\\
 \section{Results}
     \subsection{Poincar\'e Sections}
+    The forces and frequencies analyzed for the Poincar\'e sections were chosen qualitatively based on the bifurcation diagrams. Below are
+    three groups of Poincar\'e sections for driving forces of 0.5, 1.0, and 2.0 Newtons, organized into columns of uniform driving frequency. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.15\textwidth]{pcr_0.5_0.15.png}
+        \includegraphics[width=0.15\textwidth]{pcr_0.5_0.3.png}
+        \includegraphics[width=0.15\textwidth]{pcr_0.5_0.5.png}
+        \includegraphics[width=0.15\textwidth]{pcr_0.5_1.0.png}
+        \includegraphics[width=0.15\textwidth]{pcr_0.5_1.5.png}
+        \includegraphics[width=0.15\textwidth]{pcr_0.5_3.0.png}
+        \caption{Poincar\'e sections of the chaotic pendulum for a driving force of a half Newton, as a function of the driving frequency $\Omega_d$=0.15, 0.3, 0.5, 1.0, 1.5, and 3.0 (from left to right).}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.15\textwidth]{pcr_1.0_0.15.png}
+        \includegraphics[width=0.15\textwidth]{pcr_1.0_0.3.png}
+        \includegraphics[width=0.15\textwidth]{pcr_1.0_0.5.png}
+        \includegraphics[width=0.15\textwidth]{pcr_1.0_1.0.png}
+        \includegraphics[width=0.15\textwidth]{pcr_1.0_1.5.png}
+        \includegraphics[width=0.15\textwidth]{pcr_1.0_3.0.png}
+        \caption{Poincar\'e sections of the chaotic pendulum for a driving force of one Newton, as a function of the driving frequency $\Omega_d$=0.15, 0.3, 0.5, 1.0, 1.5, and 3.0 (from left to right).}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.15\textwidth]{pcr_2.0_0.15.png}
+        \includegraphics[width=0.15\textwidth]{pcr_2.0_0.3.png}
+        \includegraphics[width=0.15\textwidth]{pcr_2.0_0.5.png}
+        \includegraphics[width=0.15\textwidth]{pcr_2.0_1.0.png}
+        \includegraphics[width=0.15\textwidth]{pcr_2.0_1.5.png}
+        \includegraphics[width=0.15\textwidth]{pcr_2.0_3.0.png}
+        \caption{Poincar\'e sections of the chaotic pendulum for a driving force of two Newtons, as a function of the driving frequency $\Omega_d$=0.15, 0.3, 0.5, 1.0, 1.5, and 3.0 (from left to right).}
+        \label{fig:poincare}
+    \end{figure}
     \subsection{Bifurcation Diagrams}
+    Below are a selection of bifurcation diagrams from the dynamic program that was created to analyze the chaotic pendulum. Due to the
+    amount of data points involved and the limitations of scatter plots on performance, a log-scaled 2d histogram was used to represent the
+    data. The values of the driving frequency were chosen based on qualitative analysis of the system.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{bfn_0.0.png}
+        \includegraphics[width=0.2\textwidth]{bfn_0.15.png}
+        \includegraphics[width=0.2\textwidth]{bfn_0.3.png}
+        \includegraphics[width=0.2\textwidth]{bfn_0.5.png}
+        \includegraphics[width=0.2\textwidth]{bfn_1.0.png}
+        \includegraphics[width=0.2\textwidth]{bfn_1.5.png}
+        \includegraphics[width=0.2\textwidth]{bfn_3.0.png}
+        \caption{Bifurcation diagrams of the angle and angular velocity of the pendulum as a function of the driving force}
+        \label{fig:bifurcation}
+    \end{figure}
+    Using these bifurcation diagrams, we observed the system to generally be highly chaotic above a driving force of one Newton, and to generally
+    be moderately to lightly chaotic below a driving force of one Newton, becoming non-chaotic closer to zero. This result was used to inform
+    the selection of driving forces for the Poincar\'e sections.\\
     \subsection{Poincar\'e Plots}
     \subsection{Lyapunov Exponent}
     \subsection{Phase Space Analysis}
 \section{Conclusions}
-    \subsection{Poincar\'e Sections}
-    \subsection{Bifurcation Diagrams}
-    \subsection{Poincar\'e Plots}
-    \subsection{Lyapunov Exponent}
-    \subsection{Phase Space Analysis}
-    \subsection{Wholistic Analysis}
 
 \bibliography{report_template_library} % Specifies the bibliography file where our references are stored. If the library file and document are not in the same folder then the file path must also be included.
 
