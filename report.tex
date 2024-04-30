@@ -85,7 +85,7 @@ April 2024~\\[2cm]
     \end{itemize}
     There are multiple maps and plots that can be made to examine these prperties. 
     The most common of these is the Poincar\'e section. This is a plot of the phase 
-    space of the system, with the position of the pendulum on the x-axis and the velocity 
+    space of the system, with position on the x-axis and velocity 
     on the y-axis. The Poincar\'e section is a useful tool for examining the periodic 
     orbits of the system, and the general method of using the state space of the system 
     is useful in analyzing the other two properties, topological mixing and initial condition
@@ -116,8 +116,7 @@ April 2024~\\[2cm]
     Lyapunov exponent\cite{Lyapunov}, as well as a qualitative analysis of the phase space evolution of the system.\\
     \subsection{Poincar\'e Sections}
         Poincar\'e sections for this project were constructed by analyzing individual initial conditions and plotting the position
-        of the pendulum against the velocity of the pendulum until the system reached a periodic orbit. The Poincar\'e section was
-        then plotted, and the periodic orbit was analyzed. This was repeated for multiple initial conditions. Determining what makes
+        of the pendulum against the velocity of the pendulum until the system reached a periodic orbit.  Determining what makes
         a periodic orbit in a chaotic system with numerical methods is not completely obvious - the error in the numerical method
         was tracked for each initial condition, and the periodic orbit was determined to be when the point returned to within the
         error of the initial condition. The error was determined by the step size of the Runge-Kutta method and Euler method and then
@@ -126,27 +125,29 @@ April 2024~\\[2cm]
         The Poincar\'e section will look different depending on whether or not the system is chaotic. If the system is not chaotic,
         which is theoretically what should be recovered in the case of a small driving force, the Poincar\'e section will look like
         an ellipse or a circle. If the system is chaotic, the Poincar\'e section will look like a dense cloud of points, visually
-        not appearing to have any structure. We can perform an ellipse regression test on the poincare map and use the residuals to
-        determine whether or not the system is chaotic.\\
+        not appearing to have any structure. We can use qualitative analysis of the structure of the graph and whether or not such
+        graphs are calculable in the given time frame to determine the chaotic behavior of the system, since a chaotic system should
+        have dense periodic orbits that don't closely resemble ellipses.\\
     \subsection{Bifurcation Diagrams}
         Bifurcation diagrams were constructed by analyzing the system of the pendulum as a function of the driving force. The system
         was simulated for a range of driving forces, and the system of the pendulum was plotted for many initial conditions over a 
         long time frame. The bifurcation diagram was then analyzed for periodic orbits and chaotic behavior. Bifurcation diagrams were
         created for both the angle of the system and the angular velocity, and were made using a 2d histogram on a log scale of counts\\\vspace{3mm}
 
-        A dense bifurcation diagram is indicative of a chaotic system, while a sparse bifurcation diagram is indicative of a non-chaotic
+        A spread bifurcation diagram is indicative of a chaotic system, while a rigid bifurcation diagram is indicative of a non-chaotic
         system. The system may become chaotic at a certain driving force, and the bifurcation diagram can be used to determine the
         driving force at which it does.\\
     \subsection{Poincar\'e Plots}
         Poincar\'e plots were constructed by plotting the position of the pendulum at a given point on the x axis and the next position of
         the pendulum on the y axis to get a sense of the underlying structure of the system. Structure in the Poincare plot can be indicative
-        of certain patterns of behavior and are often used to determine the governing structure of the system. In our case, we can use the
-        distribution of points to determine whether or not the system is exhibiting chaotic behavior - if the system is chaotic, the Poincar\'e
-        plot will be dense, though there may be a general structure that can give insight into the system.\\
+        of certain patterns of behavior and are often used to determine the governing structure of the system, though the Poincar\'e plot
+        is not as useful for determining the chaotic behavior of the system as other methods, and would require more in-depth analysis to reach
+        conclusions of chaos.\\
     \subsection{Lyapunov Exponent}
         The Lyapunov exponent is a measure of the sensitivity to initial conditions of a system. It measures the rate at which
-        adjacent points in the phase space diverge from each other. A chaotic system will have a positive Lyapunov exponent, while
-        a non-chaotic system will not fit the exponential growth of the Lyapunov exponent very well, which can be tested with regression.
+        adjacent points in the phase space diverge from each other. The Lyapunov exponent applies locally to two adjacent points in phase
+        space, but may not reflect the overall behavior for the system for cases such as this one where the system is modular. It may therefore
+        be more useful to analyze the difference graphs from which the Lyapunov exponent would be constructed.
     \subsection{Phase Space Analysis}
         The phase space is a 2d plot of the angle of the pendulum on the x-axis and the angular velocity of the pendulum on the y-axis. 
         The phase space is a useful tool for analyzing the behavior of the system, and can be used qualitatively to assess sensitivity 
@@ -239,7 +240,7 @@ April 2024~\\[2cm]
     but they are useful for determining the underlying structure of the system, and showing that chaos does not necessarily mean that the system
     is unpredictable.\\
     \subsection{Lyapunov Exponent}
-    While the Lyapunov Exponent could be calculated numerically, I thought it more appropriate to use a qualitative analysis of the system and
+    While the Lyapunov Exponent could be calculated numerically, we thought it more appropriate to use a qualitative analysis of the system and
     the difference data to assess whether or not the system was chaotic and its sensitivity to initial conditions. The reason for this is that
     the graph that would be used to determine the Lyapunov exponent contains far more information about the behavior of different initial conditions
     and about the growth or decay of the differences than a single number would. Due to space concerns on the GUI the force and frequency were not
