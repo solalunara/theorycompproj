@@ -98,11 +98,11 @@ April 2024~\\[2cm]
     used are very precise, and to use a small enough time step to ensure that the system is accurately represented.
     Euler's method is simple and can be used to simulate the system, but it is not very accurate in contrast to
     the Runge-Kutta method, which uses half steps in the integration to give a better stepwise estimate. Although 
-    it may be more computationally expensive, the Runge-Kutta method is a good choice for this project, specifically
-    RK4\cite{Strogatz2000}. As such, RK4 was used to calculate the steps of angular velocity using the equation of
+    more computationally expensive, the Runge-Kutta method is a good choice for this project, specifically
+    RK4\cite{Strogatz2000}. RK4 was used to calculate the steps of angular velocity using the equation of
     motion for the forced, damped pendulum, and Euler's method was used to calculate the angle from the angular velocity, 
-    as since the angular velocities are calculated discretely with RK4 there is no way to take a half step which is required 
-    for another iteration RK4 in a way that would provide a benefit to the numerical computation. The equation of motion
+    as since the angular velocities are calculated discretely with RK4 there is no way to take the half step which is required 
+    for another RK4 iteration in a way that would provide a benefit to the numerical computation. The equation of motion
     for this system\cite{PhysRevE.53.1579} is given by
     \begin{equation}
         \frac{d^2\theta}{dt^2} = -\frac{g}{R}\sin(\theta) - \frac{b}{M}\frac{d\theta}{dt} + F_d\sin(\Omega_d t)
@@ -188,6 +188,11 @@ April 2024~\\[2cm]
         \caption{Poincar\'e sections of the chaotic pendulum for a driving force of two Newtons, as a function of the driving frequency $\Omega_d$=0.15, 0.3, 0.5, 1.0, 1.5, and 3.0 (from left to right).}
         \label{fig:poincare}
     \end{figure}
+    Two main qualitative observations can be made from the Poincar\'e sections - the first is that at higher values of the driving frequencies,
+    the iterator has a harder time finding 4 periodic orbits, indicating that the periodic orbits are less dense at those values, and thus
+    the system is less chaotic. The second qualitative observation is that the system is more chaotic at higher driving forces, as can be seen by the
+    density of the points and lack of ellipse structure in the Poincar\'e sections for higher forces that is well observed at lower force values. These
+    qualitative differences help demonstrate the chaotic behavior of the system at higher force and lower frequency values.\\
     \subsection{Bifurcation Diagrams}
     Below are a selection of bifurcation diagrams from the dynamic program that was created to analyze the chaotic pendulum. Due to the
     amount of data points involved and the limitations of scatter plots on performance, a log-scaled 2d histogram was used to represent the
@@ -206,9 +211,60 @@ April 2024~\\[2cm]
     \end{figure}
     Using these bifurcation diagrams, we observed the system to generally be highly chaotic above a driving force of one Newton, and to generally
     be moderately to lightly chaotic below a driving force of one Newton, becoming non-chaotic closer to zero. This result was used to inform
-    the selection of driving forces for the Poincar\'e sections.\\
+    the selection of driving forces for the Poincar\'e sections. The chaos of the system can be seen through the bifurcation diagrams based on their
+    spread, and as can be seen in every case the diagram becomes more spread for higher force values, with the most rapid spreading for values of the
+    driving frequency between $0.15$ and $1.5$ Hz. Below this range the frequency is so low that the force becomes either dominant in the motion of the
+    pendulums or negligible depending on its magnitude, and above the range the force is acting too quickly for many chaotic effects to occur, and a
+    dense collection of points can be seen at a smaller spread of angles and angular velocities.\\
     \subsection{Poincar\'e Plots}
+    Poincar\'e plots were established for forces and frequencies of interest. They were constructed as scatter plots to get an idea of the spread
+    of the data without diving too deep into the distribution of the data.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\textwidth]{pcp_0.5_0.5.png}
+        \includegraphics[width=0.3\textwidth]{pcp_0.5_1.0.png}
+        \includegraphics[width=0.3\textwidth]{pcp_0.5_2.0.png}
+        \includegraphics[width=0.3\textwidth]{pcp_1.0_0.5.png}
+        \includegraphics[width=0.3\textwidth]{pcp_1.0_1.0.png}
+        \includegraphics[width=0.3\textwidth]{pcp_1.0_2.0.png}
+        \includegraphics[width=0.3\textwidth]{pcp_2.0_0.5.png}
+        \includegraphics[width=0.3\textwidth]{pcp_2.0_1.0.png}
+        \includegraphics[width=0.3\textwidth]{pcp_2.0_2.0.png}
+        \caption{Poincar\'e plots of the chaotic pendulum for different driving forces and driving frequencies.}
+    \end{figure}
+    It can be seen that the Poincar\'e plots are the most spread for higher values of the force and lower values of the frequency, which can be
+    an indicator of chaotic behavior. What's most interesting about the Poincar\'e plots is that they all follow a similar structure, a line of
+    some width from the bottom left to the top right of the graph. This tells us that for each angle, the system will either move to the left or
+    to the right with some relatively predictable velocity. These graphs aren't very useful for determining the chaotic behavior of the system,
+    but they are useful for determining the underlying structure of the system, and showing that chaos does not necessarily mean that the system
+    is unpredictable.\\
     \subsection{Lyapunov Exponent}
+    While the Lyapunov Exponent could be calculated numerically, I thought it more appropriate to use a qualitative analysis of the system and
+    the difference data to assess whether or not the system was chaotic and its sensitivity to initial conditions. The reason for this is that
+    the graph that would be used to determine the Lyapunov exponent contains far more information about the behavior of different initial conditions
+    and about the growth or decay of the differences than a single number would. Due to space concerns on the GUI the force and frequency were not
+    included in the titles of the graphs, but they follow the same layout with the same values as the Poincar\'e plots
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.3\textwidth]{lya_0.5_0.5.png}
+        \includegraphics[width=0.3\textwidth]{lya_0.5_1.0.png}
+        \includegraphics[width=0.3\textwidth]{lya_0.5_2.0.png}
+        \includegraphics[width=0.3\textwidth]{lya_1.0_0.5.png}
+        \includegraphics[width=0.3\textwidth]{lya_1.0_1.0.png}
+        \includegraphics[width=0.3\textwidth]{lya_1.0_2.0.png}
+        \includegraphics[width=0.3\textwidth]{lya_2.0_0.5.png}
+        \includegraphics[width=0.3\textwidth]{lya_2.0_1.0.png}
+        \includegraphics[width=0.3\textwidth]{lya_2.0_2.0.png}
+        \caption{Poincar\'e plots of the chaotic pendulum for different driving forces and driving frequencies.}
+    \end{figure}
+    The Lyapunov exponent graphs are a much better qualitative indicator of chaos than the Poincar\'e plots for the same force and frequency
+    magnitudes. The graphs that aren't all within one rotation ($2\pi$) of each other show an extreme sensitivity to initial conditions, which
+    tends to happen for the lower frequency and higher force values. The graphs themselves aren't particularly exponential over large scales, which
+    becomes even more relevant when you consider that these are the un-modded difference graphs - if you were to observe the experiment physically
+    where $2\pi = 0$, it becomes impossible to see an exponential difference in initial conditions. The choice to use qualitative analysis with regard
+    to the Lyapunov exponent becomes apparent - the point at which local exponential differences become outdone by global patterns is arbitrary, and
+    quantitative analysis would have little use.\\
+
     \subsection{Phase Space Analysis}
 \section{Conclusions}
 
