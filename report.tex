@@ -48,7 +48,7 @@
 
 {\Huge The Chaotic Pendulum}\\[0.5cm] % [0.5cm] sets the distance between this line and the next.
 \textit{Luna Greenberg} and \textit{Hamza Yasin}~\\[0.3cm] % The '\\' starts a new paragraph, and will only work after a paragraph has started, unless we use '~'.
-\textit{11017146} and \textit{<Hamza put your student ID here>}~\\[0.3cm]
+\textit{11017146} and \textit{11020964}~\\[0.3cm]
 School of Physics and Astronomy~\\[0.3cm]
 University of Manchester~\\[0.3cm]
 Second year computational project report~\\[0.3cm]
@@ -57,8 +57,7 @@ April 2024~\\[2cm]
 
 \end{center}
 {\Large \textbf{Abstract}}~\\[0.3cm]
-    <abstract>
-
+The goal and aims of our project was via the use of numerical methods like the RK4 to provide simulation of the forced,damped single pendulum and to investigate this behavior using various techniques namely Poincare plots and Lyapunov exponents against time to show or offer analysis of categorizing behavior shown by system under the varying forcing term.It can be found principally through the use of the Lyapunov exponents that when the system is made to mimic the simple case (under small angle approximation) the system showns a zero ,static Lyapunov exponent.When such assumptions are not made, then through the additional use of bifurcation diagrams and Poincare plots ,not only will the sensitivity to initial conditions be found to indicate chaotic behavior but with the rest of the tools the density of periodic orbits and topological mixing conditions can be met.
 
 \end{titlepage}
 \pagenumbering{gobble} % This stops the title page being numbered
@@ -75,7 +74,7 @@ April 2024~\\[2cm]
 % \label{} can appear in the text (when they refer to the preceding (sub)section title), equations, tables, or figures. 
 % In this case, if you write "Section \ref{intro}" this will be rendered as "Section 1".
 
-
+A single ,forced and damped pendulum is one where the original simple pendulum-with the assumption of a massless rod - is subject to a damping force and lone variable forcing term,made by permutations of the forcing frequency and a driving force.This gives  us the complicated nature of the single 2nd order ordinary differential equation which arises when the small angle approximation is not made.This system is shown to exhibit chaos under certain conditions -'chaos is a type of motion that lies between the regular deterministic trajectories arising from integrable equations and a state unpredictable stochastic behavior characterized by complete randomness'\cite{goldstein2002classical}. For this equation an exact solution does not exist so we must proceed with the numerical methods like :Euler's forward method,which is too computationally intense for too little reward ,the RK4 method strikes the perfect balance between accuracy and computational intensity.
 \section{Theory}
     Chaos can generally be seen through
     \begin{itemize}
