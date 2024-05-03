@@ -2,7 +2,6 @@
 
 % This is the header of your report and will not feature in the report itself. It is useful to write things like the title of the document, the date and what version the document is here. The '%' symbol starts a comment line that will not appear in the final PDF.
 
-% This document was written with TeXstudio and compiled with TeXworks, as TeXstudio cannot compile a pdf itself. Programs like TeXworks or MiKTeX can be used exclusively for writing and compiling a document, but are less user friendly than TeXstudio.
 
 %This template is by no means a guide on how to use LaTeX to write documents, but a brief explanation of the major differences between Microsoft Word and LaTeX is given. LaTeX is an American program, and as such, some of the commands use the American way of spelling i.e. color instead of colour. 
 
@@ -57,7 +56,7 @@ April 2024~\\[2cm]
 
 \end{center}
 {\Large \textbf{Abstract}}~\\[0.3cm]
-The goal and aims of our project was via the use of numerical methods like the RK4 to provide simulation of the forced,damped single pendulum and to investigate this behavior using various techniques namely Poincare plots and Lyapunov exponents against time to show or offer analysis of categorizing behavior shown by system under the varying forcing term. It can be found principally through the use of the Lyapunov exponents that when the system is made to mimic the simple case (under small angle approximation) the system showns a zero, static Lyapunov exponent. When such assumptions are not made, then through the additional use of bifurcation diagrams and Poincare plots, not only will the sensitivity to initial conditions be found to indicate chaotic behavior but with the rest of the tools the density of periodic orbits and topological mixing conditions can be met.
+The goal and aims of our project was via the use of numerical methods like the RK4 to provide simulation of the forced,damped single pendulum and to investigate this behaviour using various techniques namely Poincar\'e plots and Lyapunov exponents against time to show or offer analysis of categorizing behaviour shown by system under the varying forcing term. It can be found principally through the use of the Lyapunov exponents that when the system is made to mimic the simple case (under small angle approximation) the system shows a zero, static Lyapunov exponent. When such assumptions are not made, then through the additional use of bifurcation diagrams and Poincar\'e plots, not only will the sensitivity to initial conditions be found to indicate chaotic behaviour but with the rest of the tools the density of periodic orbits and topological mixing conditions can be met.
 
 \end{titlepage}
 \pagenumbering{gobble} % This stops the title page being numbered
@@ -74,7 +73,7 @@ The goal and aims of our project was via the use of numerical methods like the R
 % \label{} can appear in the text (when they refer to the preceding (sub)section title), equations, tables, or figures. 
 % In this case, if you write "Section \ref{intro}" this will be rendered as "Section 1".
 
-A single, forced, and damped pendulum is one where the original simple pendulum - with the assumption of a massless rod - is subject to a damping force and lone variable forcing term, made by permutations of the forcing frequency and a driving force. This gives  us the complicated nature of the single 2nd order ordinary differential equation which arises when the small angle approximation is not made. This system is shown to exhibit chaos under certain conditions - 'chaos is a type of motion that lies between the regular deterministic trajectories arising from integrable equations and a state unpredictable stochastic behavior characterized by complete randomness'\cite{goldstein2002classical}. For this equation an exact solution does not exist so we must proceed with the numerical methods like: Euler's forward method, which is too computationally intense for too little reward, the RK4 method strikes the perfect balance between accuracy and computational intensity.
+A single, forced, and damped pendulum is one where the original simple pendulum - with the assumption of a massless rod - is subject to a damping force and lone variable forcing term, made by permutations of the forcing frequency and a driving force. This gives  us the complicated nature of the single 2nd order ordinary differential equation which arises when the small angle approximation is not made. This system is shown to exhibit chaos under certain conditions - 'chaos is a type of motion that lies between the regular deterministic trajectories arising from integrable equations and a state unpredictable stochastic behaviour characterized by complete randomness'\cite{goldstein2002classical}. For this equation an exact solution does not exist so we must proceed with the numerical methods like: Euler's forward method, which is too computationally intense for too little reward, the RK4 method strikes the perfect balance between accuracy and computational intensity.
 \section{Theory}
     Chaos can generally be seen through
     \begin{itemize}
@@ -82,12 +81,12 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
         \item Topological mixing, and
         \item Dense periodic orbits.
     \end{itemize}
-    There are multiple maps and plots that can be made to examine these prperties. 
+    There are multiple maps and plots that can be made to examine these properties. 
     The most common of these is the Poincar\'e section. This is a plot of the phase 
     space of the system, with position on the x-axis and velocity 
     on the y-axis. The Poincar\'e section is a useful tool for examining the periodic 
     orbits of the system, and the general method of using the state space of the system 
-    is useful in analyzing the other two properties, topological mixing and initial condition
+    is useful in analysing the other two properties, topological mixing and initial condition
     sensitivity. Other tools include the bifurcation diagram, which shows the states of the
     system as a function of the driving force, as well as the Poincar\'e plot, which is a useful
     tool in examining the underlying structure of the system. \cite{Strogatz2000}\\
@@ -111,11 +110,11 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
     and $\Omega_d$ is the frequency of the driving force. This is a second order differential equation, requiring a mesh of 2d initial
     conditions. For our analysis, we take $g=9.81\text{ms}^{-2}$, $R=10\text{m}$, $b=0.1\text{kgs}^{-1}$, and $M=10\text{kg}$ to all 
     be constant, and vary the driving force, $F_d$, and the frequency of the driving force, $\Omega_d$. The tools we will use to determine
-    chaotic behavior as outlined in the theory section are Poincar\'e sections\cite{PoincareSection}, bifurcation diagrams \cite{Bifurcation}, 
+    chaotic behaviour as outlined in the theory section are Poincar\'e sections\cite{PoincareSection}, bifurcation diagrams \cite{Bifurcation}, 
     Poincar\'e plots\cite{kamen1996poincare}, and the Lyapunov exponent\cite{Lyapunov}, as well as a qualitative analysis of the phase space
      evolution of the system.\\
     \subsection{Poincar\'e Sections}
-        Poincar\'e sections for this project were made by analyzing individual initial conditions and plotting the position
+        Poincar\'e sections for this project were made by analysing individual initial conditions and plotting the position
         and velocity of the pendulum until the system reached a periodic orbit.  Determining what makes a periodic orbit in a 
         chaotic system with numerical methods is not completely obvious due to floating point precision - the error in the numerical 
         method was tracked for each initial condition, and the periodic orbit was determined to be when the point returned to within the
@@ -126,7 +125,7 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
         which is ideally recovered in the case of a small driving force, the Poincar\'e section will look like
         an ellipse or a circle. If the system is chaotic, the Poincar\'e section will look like a dense cloud of points, visually
         not appearing to have any structure. We can use qualitative analysis of the structure of the graph and whether or not such
-        graphs are even calculable in the given time frame to determine the chaotic behavior of the system, since a chaotic system should
+        graphs are even calculable in the given time frame to determine the chaotic behaviour of the system, since a chaotic system should
         have dense periodic orbits that don't closely resemble ellipses.\\
     \subsection{Bifurcation Diagrams}
         Bifurcation diagrams were made for this system that plotted angle and angular velocity as a function of the driving force. The system
@@ -138,26 +137,26 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
         diagrams to determine that critical force, which can inform what selection of parameters we use for the other methods.\\
     \subsection{Poincar\'e Plots}
         Poincar\'e plots were made plotting the position of the pendulum at a given point on the x axis and the next position of
-        the pendulum on the y axis to get a sense of the underlying structure. Structure in the Poincare plot is indicative
-        of underlying patterns of behavior, though the Poincar\'e plot is not as useful for determining the presence of chaos
+        the pendulum on the y axis to get a sense of the underlying structure. Structure in the Poincar\'e plot is indicative
+        of underlying patterns of behaviour, though the Poincar\'e plot is not as useful for determining the presence of chaos
         as other methods, and would require more in-depth analysis to reach conclusions much more easily reached by the Poincar\'e
         sections and bifurcation diagrams.\\
     \subsection{Lyapunov Exponent}
         The Lyapunov exponent is a measure of the sensitivity to initial conditions of a system that arises from the rate at which
         adjacent phase space points diverge. The Lyapunov exponent applies locally to two adjacent points in phase space, but may
-        not reflect the overall behavior for the system for cases such as this one where the system is modular. Therefore, it may be
+        not reflect the overall behaviour for the system for cases such as this one where the system is modular. Therefore, it may be
         more useful in our case to analyze the different graphs produced by taking the differences between adjacent points over long
-        periods of time and contrasting chaotic and non-chaotic behavior qualitatively rather than calculating the Lyapunov exponent
+        periods of time and contrasting chaotic and non-chaotic behaviour qualitatively rather than calculating the Lyapunov exponent
         quantitatively.\\
     \subsection{Phase Space Analysis}
         The phase space is a 2d plot of the angle of the pendulum on the x-axis and the angular velocity of the pendulum on the y-axis. 
-        The phase space is a useful tool for analyzing the behavior of the system, and can be used qualitatively to assess sensitivity 
-        to initial conditions and topological mixing. A full GUI was created for analyzing the system qualitatively, however the format
+        The phase space is a useful tool for analysing the behaviour of the system, and can be used qualitatively to assess sensitivity 
+        to initial conditions and topological mixing. A full GUI was created for analysing the system qualitatively, however the format
         of the lab report means that only certain snapshots can be shown, but the project can be found at 
         \href{https://www.github.com/solalunara/chaos}{https://www.github.com/solalunara/chaos} which can be run with python to show the GUI.\\
 \section{Results}
     \subsection{Poincar\'e Sections}
-    The forces and frequencies analyzed for the Poincar\'e sections were chosen qualitatively based on the bifurcation diagrams. Below are
+    The forces and frequencies analysed for the Poincar\'e sections were chosen qualitatively based on the bifurcation diagrams. Below are
     three groups of Poincar\'e sections for driving forces of 0.5, 1.0, and 2.0 Newtons, organized into columns of uniform driving frequency. 
     \begin{figure}[H]
         \centering
@@ -194,7 +193,7 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
     the iterator has a harder time finding 4 periodic orbits, indicating that the periodic orbits are less dense at those values, and thus
     the system is less chaotic. The second qualitative observation is that the system is more chaotic at higher driving forces, as can be seen by the
     density of the points and lack of ellipse structure in the Poincar\'e sections for higher forces that is well observed at lower force values. These
-    qualitative differences help demonstrate the chaotic behavior of the system at higher force and lower frequency values.\\
+    qualitative differences help demonstrate the chaotic behaviour of the system at higher force and lower frequency values.\\
     \subsection{Bifurcation Diagrams}
     Below are a selection of bifurcation diagrams from the dynamic program that was created to analyze the chaotic pendulum. Due to the
     amount of data points involved and the limitations of scatter plots on performance, a log-scaled 2d histogram was used to represent the
@@ -219,9 +218,9 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
     pendulums or negligible depending on its magnitude, and above the range the force is acting too quickly for many chaotic effects to occur, and a
     dense collection of points can be seen at a smaller spread of angles and angular velocities.\\
     \subsection{Poincar\'e Plots}
-    We constructed Poincar\'e plots for forces and frequencies of interest determined by the bifurcation diagrams. While in the case of bifircation
+    We constructed Poincar\'e plots for forces and frequencies of interest determined by the bifurcation diagrams. While in the case of bifurcation
     diagrams it was important to analyze the spread of the data, in this case the structure was the most relevant detail, and as such a 2d histogram
-    was not neccesary, and instead scatter plots were used.
+    was not necessary, and instead scatter plots were used.
     \begin{figure}[H]
         \centering
         \includegraphics[width=0.15\textwidth]{pcp_0.5_0.5.png}
@@ -243,15 +242,15 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
         forces ($0.5$, $1.0$, and $2.0$ top to bottom).}
     \end{figure}
     It can be seen that the Poincar\'e plots are the most spread for higher values of the force and lower values of the frequency, which can be
-    an indicator of chaotic behavior. What's most interesting about the Poincar\'e plots is that they all follow a similar structure, a line of
+    an indicator of chaotic behaviour. What's most interesting about the Poincar\'e plots is that they all follow a similar structure, a line of
     some width from the bottom left to the top right of the graph. This tells us that for each angle, the system will either move to the left or
-    to the right with some relatively predictable velocity. These graphs aren't very useful for determining the chaotic behavior of the system,
+    to the right with some relatively predictable velocity. These graphs aren't very useful for determining the chaotic behaviour of the system,
     but they are useful for determining the underlying structure of the system, and showing that chaos does not necessarily mean that the system
     is unpredictable.\\
     \subsection{Lyapunov Exponent}
     While the Lyapunov Exponent could be calculated numerically, we thought it more appropriate to use a qualitative analysis of the system and
     the difference data to assess whether or not the system was chaotic and its sensitivity to initial conditions. The reason for this is that
-    the graph that would be used to determine the Lyapunov exponent contains far more information about the behavior of different initial conditions
+    the graph that would be used to determine the Lyapunov exponent contains far more information about the behaviour of different initial conditions
     and about the growth or decay of the differences than a single number would. Due to space concerns on the GUI the force and frequency were not
     included in the titles of the graphs, but they follow the same layout with the same values as the Poincar\'e plots
     \begin{figure}[H]
@@ -278,10 +277,10 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
 
     \subsection{Phase Space Analysis}
     Our above analysis has suggested certain systems that are likely chaotic and certain systems that are likely not chaotic, however, to prove that
-    the system is, in fact, chaotic, it is neccesary to establish the condition of topological transitivity. To analyze the phase space of the system 
+    the system is, in fact, chaotic, it is necessary to establish the condition of topological transitivity. To analyze the phase space of the system 
     to show that it is chaotic for all forces and frequencies, however, is both extremely computationally expensive and not particularly enlightening, 
     as we have established so far a general pattern that the system tends to be chaotic for higher forces and lower frequencies. The phase space evolution 
-    is shown below for the system of interest merely as a suppliment to the other analysis, and is shown for a chaotic ($F_d=1.0$ N, $\Omega_d=0.5$ Hz) and
+    is shown below for the system of interest merely as a supplement to the other analysis, and is shown for a chaotic ($F_d=1.0$ N, $\Omega_d=0.5$ Hz) and
     a non-chaotic ($F_d=0.5$ N, $\Omega_d=1.0$ Hz) configuration.
     \begin{figure}[H]
         \centering
@@ -309,8 +308,8 @@ A single, forced, and damped pendulum is one where the original simple pendulum 
     points tend to form a more rigid structure. This therefore corroborates our previous analysis of when the system is chaotic versus not chaotic.
 
 
-\section{Conclusions}
-To conclude this project,we initially found the equation of motion for our system and got to work trying to find a valid numerical solver.The RK4 was found to be perfect as it captured the essence between computational intensity and minimizing orders of error,whereas the inaccurate Euler method was aptly rejected. After this step, the independent variable namely the forcing term was varied  to show its relationship with the nature/behavior of the then system that arises: this can be achieved via taking all possible permutations of both the forcing frequency and the force.Moreover, all other variables associated with the system, i.e. the damping factor, the length of the pendulum and $g$ were all kept constant. A group of premises had to be met to quantifiably state this specific configuration exhibits chaotic behavior, which were as follows: sensitivity to initial conditions, topological mixing, and dense periodic orbits. Leading to our various tools to deal with the previous set of premises we used Poincare sections, which we would look like a circle/ellipse if the system was non chaotic but a dense cloud of points when the system was characterized to be chaotic. Our takeaway from this part of the analysis was that as the driving frequency increased solely the periodic orbits get less and less dense highlighting how the system is exhibiting non chaotic behavior. Our final takeaway for this section was that when the driving force was solely increased was the system was more chaotic concluded by the dissipation of the elliptical structure in favor of the dense fog of points. Bifurcation diagrams were of great use investigating the effect of the driving force  and using this information to inform our selection of Poincare sections. The more rigid the diagram was the less chaotic and a spread out diagram indicated chaotic behavior and using this the graphs indicated that above the driving force of $1.0$ N the system was highly chaotic, decreasing totally as the driving force equalled zero with this range showing moderately chaotic behavior. Through this same principle a range of $0.15$ to $1.5$ Hz was selected to be of the most use in terms of the forcing frequency. Unfortunately, poincare plots were of little use so not much about the relationship between driving force and frequency could be deduced. Lyapunov exponents were to deal with a qualitative assessment of a particular configurations sensitivity to initial conditions and it was found that the systems with a lower driving frequency, simultaneously increasing the driving force led to chaotic behavior.The unilateral increase of the driving frequency yields it impossible to see a difference initial conditions as they aren't exponential over large distances. We have to move out of the realm of a particular configuration being likely chaotic and establish as chaotic via the 3rd and final condition of topological mixing/transitivity, which can't be done for all configurations due to being too computationally expensive. We use systems that configure to our well established pattern of a system being chaotic as driving force increases and driving frequency decreases; it can be seen apparently for the system that is chaotic the phase points in time spread out losing most structure. The case of the non chaotic system shows the points forming a more compact structure with time.
+\section{Conclusion}
+We initially found the equation of motion for our system and got to work trying to find a valid numerical solver.The RK4 was found to be perfect as it captured the essence between computational intensity and minimizing orders of error,whereas the inaccurate Euler method was aptly rejected. After this step, the independent variable namely the forcing term was varied  to show its relationship with the nature/behaviour of the then system that arises: this can be achieved via taking all possible permutations of both the forcing frequency and the force.Moreover, all other variables associated with the system, i.e. the damping factor, the length of the pendulum and $g$ were all kept constant. A group of premises had to be met to quantifiably state this specific configuration exhibits chaotic behaviour, which were as follows: sensitivity to initial conditions, topological mixing, and dense periodic orbits. Leading to our various tools to deal with the previous set of premises we used Poincar\'e sections, which we would look like a circle/ellipse if the system was non chaotic but a dense cloud of points when the system was characterized to be chaotic. Our takeaway from this part of the analysis was that as the driving frequency increased solely the periodic orbits get less and less dense highlighting how the system is exhibiting non chaotic behaviour. Our final takeaway for this section was that when the driving force was solely increased was the system was more chaotic concluded by the dissipation of the elliptical structure in favour of the dense fog of points. Bifurcation diagrams were of great use investigating the effect of the driving force  and using this information to inform our selection of Poincar\'e sections. The more rigid the diagram was the less chaotic and a spread out diagram indicated chaotic behaviour and using this the graphs indicated that above the driving force of $1.0$ N the system was highly chaotic, decreasing totally as the driving force equalled zero with this range showing moderately chaotic behaviour. Through this same principle a range of $0.15$ to $1.5$ Hz was selected to be of the most use in terms of the forcing frequency. Unfortunately, Poincar\'e plots were of little use so not much about the relationship between driving force and frequency could be deduced. Lyapunov exponents were to deal with a qualitative assessment of a particular configurations sensitivity to initial conditions and it was found that the systems with a lower driving frequency, simultaneously increasing the driving force led to chaotic behaviour.The unilateral increase of the driving frequency yields it impossible to see a difference initial conditions as they aren't exponential over large distances. We have to move out of the realm of a particular configuration being likely chaotic and establish as chaotic via the 3rd and final condition of topological mixing/transitivity, which can't be done for all configurations due to being too computationally expensive. We use systems that configure to our well established pattern of a system being chaotic as driving force increases and driving frequency decreases; it can be seen apparently for the system that is chaotic the phase points in time spread out losing most structure. The case of the non chaotic system shows the points forming a more compact structure with time.
 \bibliography{report_template_library} % Specifies the bibliography file where our references are stored. If the library file and document are not in the same folder then the file path must also be included.
 
 
