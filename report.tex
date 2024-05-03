@@ -95,7 +95,7 @@ A single ,forced and damped pendulum is one where the original simple pendulum-w
 \section{Methodology}
     For simulating a system such as the chaotic pendulum, care must be taken to ensure the numerical methods 
     used are very precise, and to use a small enough time step to ensure that the system is accurately represented.
-    Euler's method is simple and can be used to simulate the system, but it is not very accurate in contrast to
+    Euler's method is simple and can be used to simulate the system, but it is not very accurate when contrasted to
     the Runge-Kutta method, which uses half steps in the integration to give a better stepwise estimate. Although 
     more computationally expensive, the Runge-Kutta method is a good choice for this project, specifically
     RK4\cite{Strogatz2000}. RK4 was used to calculate the steps of angular velocity using the equation of
@@ -109,44 +109,46 @@ A single ,forced and damped pendulum is one where the original simple pendulum-w
     where $\theta$ is the angle of the pendulum, $t$ is the time since the initial condition, $g$ is the acceleration due to gravity,
     $R$ is the length of the pendulum, $b$ is the damping coefficient, $M$ is the mass of the pendulum, $F_d$ is the driving force,
     and $\Omega_d$ is the frequency of the driving force. This is a second order differential equation, requiring a mesh of 2d initial
-    conditions. For this analysis, we assume $g=9.81\text{ms}^{-2}$, $R=10\text{m}$, $b=0.1\text{kgs}^{-1}$, and $M=10\text{kg}$ to all 
-    be constant, and vary the driving force, $F_d$, and the frequency of the driving force, $\Omega_d$. The system will be analyzed using 
-    Poincar\'e sections\cite{PoincareSection}, bifurcation diagrams \cite{Bifurcation}, Poincar\'e plots\cite{kamen1996poincare}, and the 
-    Lyapunov exponent\cite{Lyapunov}, as well as a qualitative analysis of the phase space evolution of the system.\\
+    conditions. For our analysis, we take $g=9.81\text{ms}^{-2}$, $R=10\text{m}$, $b=0.1\text{kgs}^{-1}$, and $M=10\text{kg}$ to all 
+    be constant, and vary the driving force, $F_d$, and the frequency of the driving force, $\Omega_d$. The tools we will use to determine
+    chaotic behavior as outlined in the theory section are Poincar\'e sections\cite{PoincareSection}, bifurcation diagrams \cite{Bifurcation}, 
+    Poincar\'e plots\cite{kamen1996poincare}, and the Lyapunov exponent\cite{Lyapunov}, as well as a qualitative analysis of the phase space
+     evolution of the system.\\
     \subsection{Poincar\'e Sections}
-        Poincar\'e sections for this project were constructed by analyzing individual initial conditions and plotting the position
-        of the pendulum against the velocity of the pendulum until the system reached a periodic orbit.  Determining what makes
-        a periodic orbit in a chaotic system with numerical methods is not completely obvious - the error in the numerical method
-        was tracked for each initial condition, and the periodic orbit was determined to be when the point returned to within the
+        Poincar\'e sections for this project were made by analyzing individual initial conditions and plotting the position
+        and velocity of the pendulum until the system reached a periodic orbit.  Determining what makes a periodic orbit in a 
+        chaotic system with numerical methods is not completely obvious due to floating point precision - the error in the numerical 
+        method was tracked for each initial condition, and the periodic orbit was determined to be when the point returned to within the
         error of the initial condition. The error was determined by the step size of the Runge-Kutta method and Euler method and then
         propagated forward through the equation of motion.\\\vspace{3mm}
 
         The Poincar\'e section will look different depending on whether or not the system is chaotic. If the system is not chaotic,
-        which is theoretically what should be recovered in the case of a small driving force, the Poincar\'e section will look like
+        which is ideally recovered in the case of a small driving force, the Poincar\'e section will look like
         an ellipse or a circle. If the system is chaotic, the Poincar\'e section will look like a dense cloud of points, visually
         not appearing to have any structure. We can use qualitative analysis of the structure of the graph and whether or not such
-        graphs are calculable in the given time frame to determine the chaotic behavior of the system, since a chaotic system should
+        graphs are even calculable in the given time frame to determine the chaotic behavior of the system, since a chaotic system should
         have dense periodic orbits that don't closely resemble ellipses.\\
     \subsection{Bifurcation Diagrams}
-        Bifurcation diagrams were constructed by analyzing the system of the pendulum as a function of the driving force. The system
-        was simulated for a range of driving forces, and the system of the pendulum was plotted for many initial conditions over a 
-        long time frame. The bifurcation diagram was then analyzed for periodic orbits and chaotic behavior. Bifurcation diagrams were
-        created for both the angle of the system and the angular velocity, and were made using a 2d histogram on a log scale of counts\\\vspace{3mm}
+        Bifurcation diagrams were made for this system that plotted angle and angular velocity as a function of the driving force. The system
+        was simulated for a spectrum of driving forces, and the pendulum was plotted for many initial conditions over a 
+        long time frame. The diagrams were made using a 2d histogram on a log scale of counts.\\\vspace{3mm}
 
-        A spread bifurcation diagram is indicative of a chaotic system, while a rigid bifurcation diagram is indicative of a non-chaotic
-        system. The system may become chaotic at a certain driving force, and the bifurcation diagram can be used to determine the
-        driving force at which it does.\\
+        A spread bifurcation diagram implies a chaotic system, while a rigid bifurcation diagram implies a non-chaotic
+        system. We predict that the system will become chaotic at a certain driving force, and thus we can use bifurcation
+        diagrams to determine that critical force, which can inform what selection of parameters we use for the other methods.\\
     \subsection{Poincar\'e Plots}
-        Poincar\'e plots were constructed by plotting the position of the pendulum at a given point on the x axis and the next position of
-        the pendulum on the y axis to get a sense of the underlying structure of the system. Structure in the Poincare plot can be indicative
-        of certain patterns of behavior and are often used to determine the governing structure of the system, though the Poincar\'e plot
-        is not as useful for determining the chaotic behavior of the system as other methods, and would require more in-depth analysis to reach
-        conclusions of chaos.\\
+        Poincar\'e plots were made plotting the position of the pendulum at a given point on the x axis and the next position of
+        the pendulum on the y axis to get a sense of the underlying structure. Structure in the Poincare plot is indicative
+        of underlying patterns of behavior, though the Poincar\'e plot is not as useful for determining the presence of chaos
+        as other methods, and would require more in-depth analysis to reach conclusions much more easily reached by the Poincar\'e
+        sections and bifurcation diagrams.\\
     \subsection{Lyapunov Exponent}
-        The Lyapunov exponent is a measure of the sensitivity to initial conditions of a system. It measures the rate at which
-        adjacent points in the phase space diverge from each other. The Lyapunov exponent applies locally to two adjacent points in phase
-        space, but may not reflect the overall behavior for the system for cases such as this one where the system is modular. It may therefore
-        be more useful to analyze the difference graphs from which the Lyapunov exponent would be constructed.
+        The Lyapunov exponent is a measure of the sensitivity to initial conditions of a system that arises from the rate at which
+        adjacent phase space points diverge. The Lyapunov exponent applies locally to two adjacent points in phase space, but may
+        not reflect the overall behavior for the system for cases such as this one where the system is modular. Therefore, it may be
+        more useful in our case to analyze the different graphs produced by taking the differences between adjacent points over long
+        periods of time and contrasting chaotic and non-chaotic behavior qualitatively rather than calculating the Lyapunov exponent
+        quantitatively.\\
     \subsection{Phase Space Analysis}
         The phase space is a 2d plot of the angle of the pendulum on the x-axis and the angular velocity of the pendulum on the y-axis. 
         The phase space is a useful tool for analyzing the behavior of the system, and can be used qualitatively to assess sensitivity 
@@ -217,20 +219,28 @@ A single ,forced and damped pendulum is one where the original simple pendulum-w
     pendulums or negligible depending on its magnitude, and above the range the force is acting too quickly for many chaotic effects to occur, and a
     dense collection of points can be seen at a smaller spread of angles and angular velocities.\\
     \subsection{Poincar\'e Plots}
-    Poincar\'e plots were established for forces and frequencies of interest. They were constructed as scatter plots to get an idea of the spread
-    of the data without diving too deep into the distribution of the data.
+    We constructed Poincar\'e plots for forces and frequencies of interest determined by the bifurcation diagrams. While in the case of bifircation
+    diagrams it was important to analyze the spread of the data, in this case the structure was the most relevant detail, and as such a 2d histogram
+    was not neccesary, and instead scatter plots were used.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.3\textwidth]{pcp_0.5_0.5.png}
-        \includegraphics[width=0.3\textwidth]{pcp_0.5_1.0.png}
-        \includegraphics[width=0.3\textwidth]{pcp_0.5_2.0.png}
-        \includegraphics[width=0.3\textwidth]{pcp_1.0_0.5.png}
-        \includegraphics[width=0.3\textwidth]{pcp_1.0_1.0.png}
-        \includegraphics[width=0.3\textwidth]{pcp_1.0_2.0.png}
-        \includegraphics[width=0.3\textwidth]{pcp_2.0_0.5.png}
-        \includegraphics[width=0.3\textwidth]{pcp_2.0_1.0.png}
-        \includegraphics[width=0.3\textwidth]{pcp_2.0_2.0.png}
-        \caption{Poincar\'e plots of the chaotic pendulum for different driving forces and driving frequencies.}
+        \includegraphics[width=0.15\textwidth]{pcp_0.5_0.5.png}
+        \includegraphics[width=0.15\textwidth]{pcp_0.5_1.0.png}
+        \includegraphics[width=0.15\textwidth]{pcp_0.5_2.0.png}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.15\textwidth]{pcp_1.0_0.5.png}
+        \includegraphics[width=0.15\textwidth]{pcp_1.0_1.0.png}
+        \includegraphics[width=0.15\textwidth]{pcp_1.0_2.0.png}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.15\textwidth]{pcp_2.0_0.5.png}
+        \includegraphics[width=0.15\textwidth]{pcp_2.0_1.0.png}
+        \includegraphics[width=0.15\textwidth]{pcp_2.0_2.0.png}
+        \caption{Poincar\'e plots of the chaotic pendulum for different driving frequencies ($0.5$, $1.0$, and $2.0$ left to right) and different
+        forces ($0.5$, $1.0$, and $2.0$ top to bottom).}
     \end{figure}
     It can be seen that the Poincar\'e plots are the most spread for higher values of the force and lower values of the frequency, which can be
     an indicator of chaotic behavior. What's most interesting about the Poincar\'e plots is that they all follow a similar structure, a line of
@@ -274,22 +284,22 @@ A single ,forced and damped pendulum is one where the original simple pendulum-w
     a non-chaotic ($F_d=0.5$ N, $\Omega_d=1.0$ Hz) configuration.
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.15\textwidth]{phase_0.png}
-        \includegraphics[width=0.15\textwidth]{phase_1.png}
-        \includegraphics[width=0.15\textwidth]{phase_2.png}
-        \includegraphics[width=0.15\textwidth]{phase_3.png}
-        \includegraphics[width=0.15\textwidth]{phase_4.png}
-        \includegraphics[width=0.15\textwidth]{phase_5.png}
+        \includegraphics[width=0.12\textwidth]{phase_0.png}
+        \includegraphics[width=0.12\textwidth]{phase_1.png}
+        \includegraphics[width=0.12\textwidth]{phase_2.png}
+        \includegraphics[width=0.12\textwidth]{phase_3.png}
+        \includegraphics[width=0.12\textwidth]{phase_4.png}
+        \includegraphics[width=0.12\textwidth]{phase_5.png}
         \caption{Phase space of the chaotic pendulum in the chaotic configuration evolution through time.}
     \end{figure}
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.15\textwidth]{phase_0A.png}
-        \includegraphics[width=0.15\textwidth]{phase_1A.png}
-        \includegraphics[width=0.15\textwidth]{phase_2A.png}
-        \includegraphics[width=0.15\textwidth]{phase_3A.png}
-        \includegraphics[width=0.15\textwidth]{phase_4A.png}
-        \includegraphics[width=0.15\textwidth]{phase_5A.png}
+        \includegraphics[width=0.12\textwidth]{phase_0A.png}
+        \includegraphics[width=0.12\textwidth]{phase_1A.png}
+        \includegraphics[width=0.12\textwidth]{phase_2A.png}
+        \includegraphics[width=0.12\textwidth]{phase_3A.png}
+        \includegraphics[width=0.12\textwidth]{phase_4A.png}
+        \includegraphics[width=0.12\textwidth]{phase_5A.png}
         \caption{Phase space of the chaotic pendulum in the non-chaotic configuration evolution through time.}
     \end{figure}
     For our analysis we had access to a GUI that allowed us to view the phase space of the system in real time, but due to the limitations of the lab report
